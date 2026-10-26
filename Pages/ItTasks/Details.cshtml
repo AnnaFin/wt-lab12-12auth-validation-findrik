@@ -1,0 +1,22 @@
+@page
+@model wt_lab5_5razor_findrik.Pages.ItTasks.DetailsModel
+@{
+    ViewData["Title"] = "Подробнее о задаче";
+}
+
+<div class="container py-4">
+    <div class="card shadow-sm rounded-4" style="max-width: 600px; margin: 0 auto;">
+        <div class="card-body p-4">
+            <h2 class="card-title fw-bold mb-4">@Model.Task?.Title</h2>
+            <p><strong>ID:</strong> @Model.Task?.Id</p>
+            <p><strong>Проект:</strong> @Model.Task?.ProjectName</p>
+            <p><strong>Приоритет:</strong> @Model.Task?.Priority</p>
+            <p><strong>Оценка (часы):</strong> @Model.Task?.EstimatedHours</p>
+            <p><strong>Статус:</strong> @(Model.Task?.IsCompleted == true ? "Выполнено" : "В процессе")</p>
+            
+            <div class="mt-4">
+                <a asp-page="/ItTasks/Index" class="btn btn-secondary">Назад к списку</a>
+            </div>
+        </div>
+    </div>
+</div>

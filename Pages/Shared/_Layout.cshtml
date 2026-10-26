@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - IT-Компания</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <!-- Добавлены fixed-top, background-color и z-index -->
+        <nav class="navbar navbar-expand-lg fixed-top shadow-sm" style="background-color: var(--midnight-blue) !important; z-index: 1030;">
+            <div class="container d-flex align-items-center">
+                <!-- Логотип -->
+                <a class="navbar-brand m-0 me-3" asp-page="/Index">✦ IT Tasks</a>
+                
+                <!-- Декоративная волна -->
+                <div class="d-none d-lg-block flex-grow-1 px-4" style="height: 20px; opacity: 0.4;">
+                    <svg viewBox="0 0 500 20" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width: 100%; height: 100%;">
+                        <path d="M0 10C50 10 50 2 100 2C150 2 150 18 200 18C250 18 250 2 300 2C350 2 350 18 400 18C450 18 450 10 500 10" stroke="var(--ivory)" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <!-- Ссылки меню -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end ms-auto flex-grow-0">
+                    <ul class="navbar-nav gap-2">
+                        <li class="nav-item"><a class="nav-link" asp-page="/Index">Главная</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-page="/ItTasks/Index">Проекты</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-page="/Employees/Index">Сотрудники</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="container" style="position: relative; z-index: 1; padding-top: 100px; padding-bottom: 50px;">
+        @RenderBody()
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

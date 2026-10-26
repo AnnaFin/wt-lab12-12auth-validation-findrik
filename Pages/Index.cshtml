@@ -1,0 +1,77 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<style>
+    /* Фиксированный фон на всю страницу */
+    body { background-color: transparent !important; }
+    .page-bg {
+        position: fixed;
+        top: 0; left: 0; width: 100vw; height: 100vh;
+        background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+        z-index: -2;
+    }
+    .page-bg::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(244, 243, 240, 0.85);
+        z-index: -1;
+    }
+    
+    /* Отключаем прыгающий эффект */
+    .static-card {
+        transition: none !important;
+    }
+    .static-card:hover {
+        transform: none !important;
+        box-shadow: 0 10px 30px rgba(15, 26, 43, 0.05) !important;
+    }
+</style>
+
+<div class="page-bg"></div>
+
+<div class="text-center py-5 my-4" style="background-color: rgba(189, 196, 212, 0.9); border-radius: 32px; box-shadow: 0 20px 40px rgba(15, 26, 43, 0.1);">
+    <h1 class="display-4 fw-bold mb-3" style="color: var(--midnight-blue);">Создаем IT-будущее</h1>
+    <div class="d-flex justify-content-center gap-3 mt-4">
+        <a asp-page="/ItTasks/Index" class="btn btn-primary btn-lg px-5 py-3">Наши проекты</a>
+        <a asp-page="/Employees/Index" class="btn btn-outline-primary btn-lg px-5 py-3" style="background-color: var(--white);">О команде</a>
+    </div>
+</div>
+
+<!-- Длинное описание (ДОБАВЛЕН КЛАСС static-card) -->
+<div class="card p-4 p-md-5 mt-4 static-card" style="border-radius: 32px; background-color: rgba(255, 255, 255, 0.95);">
+    <h2 class="fw-bold mb-4" style="color: var(--midnight-blue);">О нашей команде и услугах</h2>
+    <p class="lead" style="color: var(--dusty-blue); text-align: justify;">
+        Мы — сплоченная команда профессионалов, объединенная страстью к технологиям и стремлением к совершенству. Наша миссия — помогать бизнесу расти и процветать в цифровую эпоху, предоставляя инновационные IT-решения, которые действительно работают.
+    </p>
+    <p style="color: var(--deep-navy); text-align: justify; font-size: 1.1rem; line-height: 1.8;">
+        Наша команда предоставляет полный спектр услуг: от разработки сложных веб-приложений и мобильных решений под iOS и Android до проектирования высоконагруженных баз данных и внедрения систем искусственного интеллекта. Мы специализируемся на автоматизации бизнес-процессов, создании удобных интерфейсов (UI/UX) и обеспечении кибербезопасности. Каждый проект для нас — это уникальная история, над которой работает команда экспертов, вкладывающих душу в каждую строчку кода. Мы не просто пишем программы, мы строим фундамент для вашего будущего успеха.
+    </p>
+</div>
+
+<!-- Статичные карточки -->
+<div class="row text-center mt-4 g-4">
+    <div class="col-md-4">
+        <div class="card p-4 h-100 static-card" style="background-color: rgba(255, 255, 255, 0.95);">
+            <h2 class="fw-bold" style="color: var(--midnight-blue);">50+</h2>
+            <p class="text-muted mb-0">Успешных проектов</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-4 h-100 static-card" style="background-color: rgba(255, 255, 255, 0.95);">
+            <h2 class="fw-bold" style="color: var(--midnight-blue);">6</h2>
+            <p class="text-muted mb-0">Экспертов в команде</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card p-4 h-100 static-card" style="background-color: rgba(255, 255, 255, 0.95);">
+            <h2 class="fw-bold" style="color: var(--midnight-blue);">24/7</h2>
+            <p class="text-muted mb-0">Поддержка клиентов</p>
+        </div>
+    </div>
+</div>

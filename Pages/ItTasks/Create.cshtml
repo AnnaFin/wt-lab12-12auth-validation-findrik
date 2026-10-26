@@ -1,0 +1,52 @@
+@page
+@model wt_lab5_5razor_findrik.Pages.ItTasks.CreateModel
+@{
+    ViewData["Title"] = "Добавление задачи";
+}
+
+<div class="container py-4">
+    <div class="card shadow-sm rounded-4" style="max-width: 600px; margin: 0 auto;">
+        <div class="card-body p-4">
+            <h2 class="mb-4 fw-bold">Добавление задачи</h2>
+            
+            <form method="post">
+                <div class="mb-3">
+                    <label asp-for="NewTask.Title" class="form-label">Название</label>
+                    <input asp-for="NewTask.Title" class="form-control" />
+                    <span asp-validation-for="NewTask.Title" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="NewTask.ProjectName" class="form-label">Проект</label>
+                    <input asp-for="NewTask.ProjectName" class="form-control" />
+                    <span asp-validation-for="NewTask.ProjectName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="NewTask.Priority" class="form-label">Приоритет</label>
+                    <select asp-for="NewTask.Priority" class="form-select">
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="NewTask.EstimatedHours" class="form-label">Оценка (часы)</label>
+                    <input asp-for="NewTask.EstimatedHours" class="form-control" />
+                    <span asp-validation-for="NewTask.EstimatedHours" class="text-danger"></span>
+                </div>
+
+                <div class="form-check mb-4">
+                    <input asp-for="NewTask.IsCompleted" class="form-check-input" />
+                    <label asp-for="NewTask.IsCompleted" class="form-check-label">Выполнено</label>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <a asp-page="/ItTasks/Index" class="btn btn-secondary">Назад</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

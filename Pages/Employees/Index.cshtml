@@ -1,0 +1,136 @@
+@page
+@model wt_lab5_5razor_findrik.Pages.Employees.IndexModel
+@{
+    ViewData["Title"] = "Наши сотрудники";
+}
+
+<style>
+    /* Фиксированный фон для страницы сотрудников */
+    body { background-color: transparent !important; }
+    .page-bg-emp {
+        position: fixed;
+        top: 0; left: 0; width: 100vw; height: 100vh;
+        background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop');
+        background-size: cover;
+        background-position: center;
+        z-index: -2;
+    }
+    .page-bg-emp::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(244, 243, 240, 0.9);
+        z-index: -1;
+    }
+    
+    /* Отключаем прыгающий эффект */
+    .static-card {
+        transition: none !important;
+    }
+    .static-card:hover {
+        transform: none !important;
+        box-shadow: 0 10px 30px rgba(15, 26, 43, 0.05) !important;
+    }
+
+    /* Стили для фотографий, чтобы они были ровными кругами/квадратами */
+    .employee-photo {
+        width: 150px;
+        height: 150px;
+        object-fit: cover; /* Сохраняет пропорции фото */
+        border-radius: 50%; /* Делает круглым */
+        border: 4px solid var(--white);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .employee-photo-sm {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid var(--ivory);
+    }
+</style>
+
+<div class="page-bg-emp"></div>
+
+<div class="container py-2">
+    <div class="text-center mt-5 pt-5 mb-5 pb-5">
+        <h1 class="fw-bold" style="color: var(--midnight-blue);">Наша команда</h1>
+        <p class="lead" style="color: var(--dusty-blue);">Люди, которые делают невозможное возможным</p>
+    </div>
+
+    <!-- Блок директора -->
+    <div class="row align-items-stretch mb-5 g-4">
+        <!-- Карточка директора (Слева) -->
+        <div class="col-12 col-lg-4">
+            <div class="card h-100 text-center p-4" style="background-color: var(--ivory) !important; display: flex; flex-direction: column; justify-content: center;">
+                <div class="card-body d-flex flex-column align-items-center justify-content-center">
+                    <!-- Путь к фото директора -->
+                    <img src="/images/Аня.jpg" class="employee-photo mb-3" alt="Финдрик Анна">
+                    <h3 class="fw-bold mt-2 mb-1" style="color: var(--midnight-blue);">Финдрик Анна</h3>
+                    <p class="text-muted mb-0">CEO / Основатель</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-8">
+            <div class="card h-100 p-4 p-md-5 static-card" style="background-color: rgba(255, 255, 255, 0.95); display: flex; flex-direction: column; justify-content: center;">
+                <h4 class="fw-bold mb-3" style="color: var(--midnight-blue);">Лидер и вдохновитель</h4>
+                <p class="lead" style="color: var(--dusty-blue); font-size: 1.1rem; line-height: 1.7; text-align: justify;">
+                    Анна — не просто руководитель, а настоящий визионер и душа нашей компании. Благодаря её стратегическому мышлению и безграничной энергии, мы покоряем новые вершины в мире IT. Она умеет видеть потенциал там, где другие видят сложности, и всегда готова поддержать любую, даже самую смелую идею. 
+                </p>
+                <p style="color: var(--deep-navy); font-size: 1.05rem; line-height: 1.7; text-align: justify;">
+                    Под её руководством компания выросла из небольшого стартапа в надежного партнера для крупных бизнесов. Анна создает ту самую уникальную атмосферу, в которой хочется творить и развиваться. Это человек, за которым хочется идти, и чьи решения всегда ведут команду к успеху.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card text-center p-4" style="background-color: rgba(255, 255, 255, 0.95);">
+                <div class="card-body">
+                    <img src="/images/Даша.jpg" class="employee-photo-sm mb-3" alt="Талько Дарья">
+                    <h4 class="fw-bold" style="color: var(--midnight-blue);">Талько Дарья</h4>
+                    <p class="text-muted mb-0">Lead Frontend</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card text-center p-4" style="background-color: rgba(255, 255, 255, 0.95);">
+                <div class="card-body">
+                    <img src="/images/Настя.jpg" class="employee-photo-sm mb-3" alt="Правоторова Анастасия">
+                    <h4 class="fw-bold" style="color: var(--midnight-blue);">Правоторова Анастасия</h4>
+                    <p class="text-muted mb-0">Backend Developer</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card text-center p-4" style="background-color: rgba(255, 255, 255, 0.95);">
+                <div class="card-body">
+                    <img src="/images/Маша.jpg" class="employee-photo-sm mb-3" alt="Стрельчёнок Мария">
+                    <h4 class="fw-bold" style="color: var(--midnight-blue);">Стрельчёнок Мария</h4>
+                    <p class="text-muted mb-0">UI/UX Designer</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card text-center p-4" style="background-color: rgba(255, 255, 255, 0.95);">
+                <div class="card-body">
+                    <img src="/images/Арина.jpg" class="employee-photo-sm mb-3" alt="Валькович Арина">
+                    <h4 class="fw-bold" style="color: var(--midnight-blue);">Валькович Арина</h4>
+                    <p class="text-muted mb-0">QA Engineer</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card text-center p-4" style="background-color: rgba(255, 255, 255, 0.95);">
+                <div class="card-body">
+                    <img src="/images/Полина.jpg" class="employee-photo-sm mb-3" alt="Судинко Полина">
+                    <h4 class="fw-bold" style="color: var(--midnight-blue);">Судинко Полина</h4>
+                    <p class="text-muted mb-0">Project Manager</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
