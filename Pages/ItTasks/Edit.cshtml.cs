@@ -1,39 +1,42 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using wt_lab5_5razor_findrik.Models;
-using wt_lab5_5razor_findrik.Data;
+using Microsoft.EntityFrameworkCore;
+using wt_lab8_8razor_postgresql_findrik.Data;
+using wt_lab8_8razor_postgresql_findrik.Models;
 
-namespace wt_lab5_5razor_findrik.Pages.ItTasks;
+namespace wt_lab8_8razor_postgresql_findrik.Pages.ItTasks;
 
 public class EditModel : PageModel
 {
+    private readonly AppDbContext _context;
+
+    public EditModel(AppDbContext context)
+    {
+        _context = context;
+    }
+
     [BindProperty]
     public ItTask CurrentTask { get; set; } = new();
 
-    public IActionResult OnGet(int id)
+    public async Task<IActionResult> OnGetAsync(int? id)
     {
-        var task = ItTaskStore.Tasks.FirstOrDefault(x => x.Id == id);
-        if (task == null) return NotFound();
+        if (id == null) return NotFound();
 
-        CurrentTask = task;
+        CurrentTask = await _context.Tasks.FindAsync(id);
+        if (CurrentTask == null) return NotFound();
+
         return Page();
     }
 
-    public IActionResult OnPost()
+    public async Task<IActionResult> OnPostAsync()
     {
         if (!ModelState.IsValid)
         {
             return Page();
         }
 
-        var existingTask = ItTaskStore.Tasks.FirstOrDefault(x => x.Id == CurrentTask.Id);
-        if (existingTask == null) return NotFound();
-
-        existingTask.Title = CurrentTask.Title;
-        existingTask.ProjectName = CurrentTask.ProjectName;
-        existingTask.Priority = CurrentTask.Priority;
-        existingTask.EstimatedHours = CurrentTask.EstimatedHours;
-        existingTask.IsCompleted = CurrentTask.IsCompleted;
+        _context.Attach(CurrentTask).State = EntityState.Modified;
+        await _context.SaveChangesAsync();
 
         return RedirectToPage("./Index");
     }

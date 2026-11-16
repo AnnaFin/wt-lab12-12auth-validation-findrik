@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace wt_lab5_5razor_findrik.Pages;
+namespace wt_lab8_8razor_postgresql_findrik.Pages;
 
 public class IndexModel : PageModel
 {

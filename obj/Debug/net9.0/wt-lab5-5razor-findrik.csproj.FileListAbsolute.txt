@@ -94,3 +94,4 @@ D:\Учёба\Вэб-технологии\Лаб 5\wt-lab5-5razor-findrik\obj\De
 D:\Учёба\Вэб-технологии\Лаб 5\wt-lab5-5razor-findrik\obj\Debug\net9.0\wt-lab5-5razor-findrik.pdb
 D:\Учёба\Вэб-технологии\Лаб 5\wt-lab5-5razor-findrik\obj\Debug\net9.0\wt-lab5-5razor-findrik.genruntimeconfig.cache
 D:\Учёба\Вэб-технологии\Лаб 5\wt-lab5-5razor-findrik\obj\Debug\net9.0\ref\wt-lab5-5razor-findrik.dll
+D:\Учёба\Вэб-технологии\Лаб 5\wt-lab5-5razor-findrik\obj\Debug\net9.0\wt-lab5-5razor-findrik.sourcelink.json

@@ -1,26 +1,44 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using wt_lab5_5razor_findrik.Models;
-using wt_lab5_5razor_findrik.Data;
+using Microsoft.EntityFrameworkCore;
+using wt_lab8_8razor_postgresql_findrik.Data;
+using wt_lab8_8razor_postgresql_findrik.Models;
 
-namespace wt_lab5_5razor_findrik.Pages.ItTasks;
+namespace wt_lab8_8razor_postgresql_findrik.Pages.ItTasks;
 
 public class IndexModel : PageModel
 {
-    public List<ItTask> Tasks { get; set; } = new();
+    private readonly AppDbContext _context;
 
-    public void OnGet()
+    public IndexModel(AppDbContext context)
     {
-        Tasks = ItTaskStore.Tasks;
+        _context = context;
     }
 
-    // Обработчик удаления
-    public IActionResult OnPostDelete(int id)
+    public List<ItTask> Tasks { get; set; } = new();
+
+    [BindProperty(SupportsGet = true)]
+    public string? Search { get; set; }
+
+    public async Task OnGetAsync()
     {
-        var task = ItTaskStore.Tasks.FirstOrDefault(x => x.Id == id);
+        var query = _context.Tasks.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(Search))
+        {
+            query = query.Where(t => t.Title.ToLower().Contains(Search.ToLower()));
+        }
+
+        Tasks = await query.OrderBy(t => t.Title).ToListAsync();
+    }
+
+    public async Task<IActionResult> OnPostDeleteAsync(int id)
+    {
+        var task = await _context.Tasks.FindAsync(id);
         if (task != null)
         {
-            ItTaskStore.Tasks.Remove(task);
+            _context.Tasks.Remove(task);
+            await _context.SaveChangesAsync();
         }
         return RedirectToPage("./Index");
     }

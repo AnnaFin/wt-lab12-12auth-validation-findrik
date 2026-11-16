@@ -1,12 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using wt_lab5_5razor_findrik.Models;
-using wt_lab5_5razor_findrik.Data;
+using wt_lab8_8razor_postgresql_findrik.Data;
+using wt_lab8_8razor_postgresql_findrik.Models;
 
-namespace wt_lab5_5razor_findrik.Pages.ItTasks;
+namespace wt_lab8_8razor_postgresql_findrik.Pages.ItTasks;
 
 public class CreateModel : PageModel
 {
+    private readonly AppDbContext _context;
+
+    public CreateModel(AppDbContext context)
+    {
+        _context = context;
+    }
+
     [BindProperty]
     public ItTask NewTask { get; set; } = new();
 
@@ -14,15 +21,15 @@ public class CreateModel : PageModel
     {
     }
 
-    public IActionResult OnPost()
+    public async Task<IActionResult> OnPostAsync()
     {
         if (!ModelState.IsValid)
         {
             return Page();
         }
 
-        NewTask.Id = ItTaskStore.Tasks.Any() ? ItTaskStore.Tasks.Max(x => x.Id) + 1 : 1;
-        ItTaskStore.Tasks.Add(NewTask);
+        _context.Tasks.Add(NewTask);
+        await _context.SaveChangesAsync();
 
         return RedirectToPage("./Index");
     }

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace wt_lab5_5razor_findrik.Models;
+namespace wt_lab8_8razor_postgresql_findrik.Models;
 
 public class ItTask
 {
@@ -19,4 +19,5 @@ public class ItTask
     public double EstimatedHours { get; set; }
 
     public bool IsCompleted { get; set; }
+    public string Description { get; set; } = string.Empty;
 }

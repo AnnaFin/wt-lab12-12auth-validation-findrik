@@ -1,5 +1,5 @@
 @page
-@model wt_lab5_5razor_findrik.Pages.ItTasks.IndexModel
+@model wt_lab8_8razor_postgresql_findrik.Pages.ItTasks.IndexModel
 @{
     ViewData["Title"] = "Наши проекты";
 }
@@ -9,6 +9,11 @@
         <h1 class="fw-bold m-0" style="color: var(--midnight-blue);">Проекты и задачи</h1>
         <a asp-page="/ItTasks/Create" class="btn btn-primary px-4 py-2">+ Добавить задачу</a>
     </div>
+
+    <form method="get" class="mb-4 d-flex gap-2">
+    <input type="text" name="Search" value="@Model.Search" class="form-control" placeholder="Поиск по названию задачи..." style="max-width: 300px;" />
+    <button type="submit" class="btn btn-primary">Найти</button>
+    </form>
 
     <div class="row g-4">
         @foreach (var task in Model.Tasks)

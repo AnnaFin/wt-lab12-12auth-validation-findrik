@@ -1,17 +1,29 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using wt_lab5_5razor_findrik.Models;
-using wt_lab5_5razor_findrik.Data;
+using wt_lab8_8razor_postgresql_findrik.Data;
+using wt_lab8_8razor_postgresql_findrik.Models;
 
-namespace wt_lab5_5razor_findrik.Pages.ItTasks;
+namespace wt_lab8_8razor_postgresql_findrik.Pages.ItTasks;
 
 public class DetailsModel : PageModel
 {
+    private readonly AppDbContext _context;
+
+    public DetailsModel(AppDbContext context)
+    {
+        _context = context;
+    }
+
     public ItTask? Task { get; set; }
 
-    public IActionResult OnGet(int id)
+    public async Task<IActionResult> OnGetAsync(int? id)
     {
-        Task = ItTaskStore.Tasks.FirstOrDefault(x => x.Id == id);
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        Task = await _context.Tasks.FindAsync(id);
         if (Task == null)
         {
             return NotFound();
