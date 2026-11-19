@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("wt-lab8-8razor-postgresql-findrik")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0980730fb89068721efdad6bd5813ac548e3a0e3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fe7815f1a22535a41ebb6f594244c3a8cca91a1")]
 [assembly: System.Reflection.AssemblyProductAttribute("wt-lab8-8razor-postgresql-findrik")]
 [assembly: System.Reflection.AssemblyTitleAttribute("wt-lab8-8razor-postgresql-findrik")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
