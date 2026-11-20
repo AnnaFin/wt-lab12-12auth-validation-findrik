@@ -8,4 +8,4 @@ FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 WORKDIR /app
 COPY --from=build /app/publish .
 EXPOSE 10000
-ENTRYPOINT ["dotnet", "wt-lab8-8razor-postgresql-findrik.dll"]
+ENTRYPOINT ["dotnet", "wt-lab12-12auth-validation-findrik.dll"]
