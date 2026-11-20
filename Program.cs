@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using wt_lab8_8razor_postgresql_findrik.Data;
+using wt_lab12_12auth_validation_findrik.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +18,8 @@ if (!string.IsNullOrWhiteSpace(databaseUrl))
 builder.Services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connectionString));
 builder.Services.AddRazorPages();
 
+builder.Services.AddSession(); 
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -35,6 +37,9 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+
+app.UseSession();
+
 app.UseAuthorization();
 app.MapRazorPages();
 

@@ -1,0 +1,18 @@
+@page
+@model wt_lab12_12auth_validation_findrik.Pages.ProfileModel
+@{
+    ViewData["Title"] = "Личный кабинет";
+}
+
+<div class="container py-4">
+    <div class="card shadow-sm rounded-4 text-center" style="max-width: 500px; margin: 0 auto;">
+        <div class="card-body p-5">
+            <h1 class="mb-4" style="color: var(--midnight-blue);">Личный кабинет</h1>
+            <p class="lead">Вы вошли как: <strong>@Model.UserLogin</strong></p>
+            
+            <form method="post" class="mt-4">
+                <button type="submit" class="btn btn-danger px-4">Выйти</button>
+            </form>
+        </div>
+    </div>
+</div>

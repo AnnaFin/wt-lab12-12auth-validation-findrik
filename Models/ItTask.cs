@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace wt_lab8_8razor_postgresql_findrik.Models;
+namespace wt_lab12_12auth_validation_findrik.Models;
 
 public class ItTask
 {

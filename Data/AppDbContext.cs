@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using wt_lab8_8razor_postgresql_findrik.Models;
+using wt_lab12_12auth_validation_findrik.Models;
 
-namespace wt_lab8_8razor_postgresql_findrik.Data;
+namespace wt_lab12_12auth_validation_findrik.Data;
 
 public class AppDbContext : DbContext
 {
@@ -10,4 +10,5 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<ItTask> Tasks => Set<ItTask>();
+    public DbSet<User> Users => Set<User>();
 }

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace wt_lab8_8razor_postgresql_findrik.Pages.Employees;
+namespace wt_lab12_12auth_validation_findrik.Pages.Employees;
 
 public class IndexModel : PageModel
 {

@@ -1,0 +1,31 @@
+@page
+@model wt_lab12_12auth_validation_findrik.Pages.LoginModel
+@{
+    ViewData["Title"] = "Вход";
+}
+
+<div class="container py-4">
+    <div class="card shadow-sm rounded-4" style="max-width: 400px; margin: 0 auto;">
+        <div class="card-body p-4">
+            <h2 class="text-center mb-4 fw-bold" style="color: var(--midnight-blue);">Вход в систему</h2>
+            
+            <form method="post">
+                <div asp-validation-summary="All" class="text-danger mb-3"></div>
+                
+                <div class="mb-3">
+                    <label asp-for="Login" class="form-label">Логин</label>
+                    <input asp-for="Login" class="form-control" />
+                    <span asp-validation-for="Login" class="text-danger"></span>
+                </div>
+                
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label">Пароль</label>
+                    <input asp-for="Password" type="password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-100">Войти</button>
+            </form>
+        </div>
+    </div>
+</div>

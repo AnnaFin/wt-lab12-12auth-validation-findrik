@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using wt_lab8_8razor_postgresql_findrik.Data;
+using wt_lab12_12auth_validation_findrik.Data;
 
 #nullable disable
 
@@ -24,7 +24,7 @@ namespace wtlab88razorpostgresqlfindrik.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("wt_lab8_8razor_postgresql_findrik.Models.ItTask", b =>
+            modelBuilder.Entity("wt_lab12_12auth_validation_findrik.Models.ItTask", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

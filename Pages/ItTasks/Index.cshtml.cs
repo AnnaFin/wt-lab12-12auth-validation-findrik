@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using wt_lab8_8razor_postgresql_findrik.Data;
-using wt_lab8_8razor_postgresql_findrik.Models;
+using wt_lab12_12auth_validation_findrik.Data;
+using wt_lab12_12auth_validation_findrik.Models;
 
-namespace wt_lab8_8razor_postgresql_findrik.Pages.ItTasks;
+namespace wt_lab12_12auth_validation_findrik.Pages.ItTasks;
 
 public class IndexModel : PageModel
 {
